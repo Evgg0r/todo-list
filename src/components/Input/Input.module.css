@@ -1,0 +1,11 @@
+.input {
+  color: hsl(249, 10%, 26%);
+  padding: 15px;
+  font-size: 20px;
+  width: 470px;
+  border-radius: 8px;
+}
+
+.input::placeholder {
+  color: hsl(246, 25%, 77%);
+}
