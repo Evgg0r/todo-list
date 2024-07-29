@@ -1,0 +1,14 @@
+.button {
+  color: aliceblue;
+  background-color: hsl(154, 59%, 51%);
+  padding: 15px;
+  font-size: 20px;
+  width: 500px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
