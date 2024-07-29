@@ -1,4 +1,13 @@
+/* .main {
+background-color: hsl(0, 100%, 74%);
+min-height: 100vh;
+} */
+
 .main {
-  /* background-color: hsl(0, 100%, 74%); */
-  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+}
+
+.main > div {
+  margin-right: 50px;
 }
