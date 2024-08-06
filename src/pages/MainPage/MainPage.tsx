@@ -1,21 +1,37 @@
 import { useState } from "react";
 import s from "./MainPage.module.css";
 import { TaskType, Todolist } from "./Todolist";
+import { nanoid } from '@reduxjs/toolkit'
+
 
 export type FilterValuesType = "all" | "completed" | "active"
 
+
+
 function MainPage() {
+
   let [tasks, setTasks] = useState<Array<TaskType>>([
-    { id: 1, title: "CSS", isDone: true },
-    { id: 2, title: "JS", isDone: true },
-    { id: 3, title: "ReactJS", isDone: false },
-    { id: 4, title: "Redux", isDone: false },
+    { id: nanoid(), title: "CSS", isDone: true },
+    { id: nanoid(), title: "JS", isDone: true },
+    { id: nanoid(), title: "ReactJS", isDone: false },
+    { id: nanoid(), title: "Redux", isDone: false },
   ])
+  
+
   let [filter, setFilter] = useState<FilterValuesType>("all");
 
-  function removeTask(id: number) {
+  function removeTask(id: string) {
     let filteredTasks = tasks.filter( t => t.id !== id)
     setTasks(filteredTasks)
+  }
+
+  function addTask(title: string) {
+    let newTask = {
+      id: nanoid(), 
+      title: title, 
+      isDone: false};
+    let newTasks = [newTask, ...tasks];
+    setTasks(newTasks)
   }
 
   function changeFilter(value: FilterValuesType) {
@@ -37,7 +53,9 @@ function MainPage() {
       <Todolist title="What to learn" 
       tasks={tasksForTodolist}
       removeTask={removeTask}
-      changeFilter={changeFilter}/>
+      changeFilter={changeFilter}
+      addTask={addTask}
+      />
     </div>
   );
 }
